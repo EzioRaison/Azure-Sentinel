@@ -266,7 +266,7 @@ class S3Client:
         elif '.log.gz' in key.lower():
             downloaded_obj = self.download_obj(key)
             csv_file = self.unpack_file(downloaded_obj, key)
-            sortedLogEvents = self.parse_log_file(csv_file)
+            sortedLogEvents = csv_file.split('\n')
         elif '.json' in key.lower():
             downloaded_obj = self.download_obj(key)
             sortedLogEvents = self.unpack_file(downloaded_obj, key)            
